@@ -12,14 +12,18 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class MusicControlReceiver extends BroadcastReceiver {
 
-    private final MusicControlModule module;
-    private final String packageName;
-    private final ReactApplicationContext reactContext;
+    private MusicControlModule module;
+    private String packageName;
+    private ReactApplicationContext reactContext;
 
     public MusicControlReceiver(MusicControlModule module, ReactApplicationContext context) {
         this.module = module;
         this.packageName = context.getPackageName();
         this.reactContext = context;
+    }
+
+    public MusicControlReceiver() {
+
     }
 
     @Override

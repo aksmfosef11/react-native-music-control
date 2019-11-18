@@ -121,7 +121,6 @@ public class MusicControlModule extends ReactContextBaseJavaModule implements Co
         if (!(Build.MANUFACTURER.toLowerCase(Locale.getDefault()).contains("huawei") && Build.VERSION.SDK_INT < Build.VERSION_CODES.M)) {
             MediaStyle style = new MediaStyle();
             style.setMediaSession(session.getSessionToken());
-
                 int controlCount = 0;
                 if(hasControl(PlaybackStateCompat.ACTION_PLAY) || hasControl(PlaybackStateCompat.ACTION_PAUSE) || hasControl(PlaybackStateCompat.ACTION_PLAY_PAUSE)) {
                     controlCount += 1;
@@ -331,7 +330,7 @@ public class MusicControlModule extends ReactContextBaseJavaModule implements Co
                         md.putBitmap(MediaMetadataCompat.METADATA_KEY_ART, bitmap);
                         session.setMetadata(md.build());
                     }
-                    if(nb != null) {
+                    if(nb != null && notification != null) {
                         nb.setLargeIcon(bitmap);
                         notification.show(nb, isPlaying);
                     }
@@ -353,7 +352,6 @@ public class MusicControlModule extends ReactContextBaseJavaModule implements Co
     @ReactMethod
     synchronized public void updatePlayback(ReadableMap info) {
         init();
-
         long updateTime;
         long elapsedTime;
         long bufferedTime = info.hasKey("bufferedTime") ? (long)(info.getDouble("bufferedTime") * 1000) : state.getBufferedPosition();
