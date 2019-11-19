@@ -191,13 +191,6 @@ public class MusicControlModule extends ReactContextBaseJavaModule implements Co
 
         afListener = new MusicControlAudioFocusListener(context, emitter, volume);
 
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            context.startForegroundService(myIntent);
-
-        }
-        else
-            context.startService(myIntent);
-
         context.registerComponentCallbacks(this);
 
         isPlaying = true;
