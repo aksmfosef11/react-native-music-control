@@ -190,7 +190,7 @@ public class MusicControlModule extends ReactContextBaseJavaModule implements Co
         Intent myIntent = new Intent(context, MusicControlNotification.NotificationService.class);
 
         afListener = new MusicControlAudioFocusListener(context, emitter, volume);
-
+        context.startService(myIntent);
         context.registerComponentCallbacks(this);
 
         isPlaying = true;
