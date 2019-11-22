@@ -28,7 +28,7 @@ public class MusicControlReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        if(module.session == null || module.notification == null) return;
+        if(module == null || module.session == null || module.notification == null) return;
         String action = intent.getAction();
 
         if(MusicControlNotification.REMOVE_NOTIFICATION.equals(action)) {

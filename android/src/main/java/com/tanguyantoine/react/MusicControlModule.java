@@ -188,13 +188,16 @@ public class MusicControlModule extends ReactContextBaseJavaModule implements Co
         context.registerReceiver(receiver, filter);
 
         Intent myIntent = new Intent(context, MusicControlNotification.NotificationService.class);
-
         afListener = new MusicControlAudioFocusListener(context, emitter, volume);
-        context.startService(myIntent);
-        context.registerComponentCallbacks(this);
 
-        isPlaying = true;
-        init = true;
+        try{
+            context.startService(myIntent);
+            context.registerComponentCallbacks(this);
+            isPlaying = true;
+            init = true;
+        }catch (IllegalStateException e){
+            e.printStackTrace();
+        }
     }
 
     @ReactMethod
