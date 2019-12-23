@@ -56,9 +56,9 @@ public class MusicControlNotification {
     }
 
     public synchronized void updateActions(long mask, Map<String, Integer> options) {
-        play = createAction("playicon", "Play", mask, PlaybackStateCompat.ACTION_PLAY, play);
-        pause = createAction("pause", "Pause", mask, PlaybackStateCompat.ACTION_PAUSE, pause);
-        stop = createAction("stop", "Stop", mask, PlaybackStateCompat.ACTION_STOP, stop);
+        play = createAction("playicon", "재생", mask, PlaybackStateCompat.ACTION_PLAY, play);
+        pause = createAction("pause", "일시정지", mask, PlaybackStateCompat.ACTION_PAUSE, pause);
+        stop = createAction("stop", "정지", mask, PlaybackStateCompat.ACTION_STOP, stop);
     }
 
     /**
