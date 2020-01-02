@@ -30,7 +30,7 @@ public class MusicControlReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if(module == null || module.session == null || module.notification == null) return;
         String action = intent.getAction();
-
+        if (action.equals(Intent.ACTION_SCREEN_OFF)) return;
         if(MusicControlNotification.REMOVE_NOTIFICATION.equals(action)) {
 
             if(!checkApp(intent)) return;
